@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name"><b>The Lingo</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="already_have_an_account_b_sign_in_b">Already have an account? <b>Sign In</b></string>
+    <string name="dont_have_an_account_b_sign_up_b">Don\'t have an account? <b>Sign Up</b></string>
+    <string name="click_to_open_link"><u>Click to open link:</u></string>
+</resources>

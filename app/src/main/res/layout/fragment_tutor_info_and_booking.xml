@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/tutor_booking_view">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_purple"
+    tools:context=".TutorInfoAndBookingActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/back"
+        android:layout_width="45dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/tutor_img"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/byron_bay"
+        android:elevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tutor_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/estedad_semibold"
+        android:text="John Doe"
+        android:textColor="@color/burgundy"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tutor_img" />
+
+    <TextView
+        android:id="@+id/tutor_bio"
+        android:layout_width="366dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="18dp"
+        android:fontFamily="@font/estedad_regular"
+        android:lines="4"
+        android:maxLines="4"
+        android:text="Excellent blah bla"
+        android:textColor="@color/burgundy"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tutor_name" />
+
+    <TextView
+        android:id="@+id/teaches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="44dp"
+        android:drawableStart="@drawable/bullet_point"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/estedad_medium"
+        android:text="english ..."
+        android:textColor="@color/burgundy"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tutor_bio" />
+
+    <TextView
+        android:id="@+id/rates_langs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/estedad_medium"
+        android:text="English:\nSpanish:"
+        android:textColor="@color/burgundy"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/teaches" />
+
+    <TextView
+        android:id="@+id/rates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/estedad_medium"
+        android:text="30/hr:\n35/hr:"
+        android:textColor="@color/burgundy"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/rates_langs"
+        app:layout_constraintTop_toBottomOf="@+id/teaches" />
+
+    <TextView
+        android:id="@+id/appointment_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:lineBreakStyle="normal"
+        android:padding="10dp"
+        android:maxLines="2"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/estedad_medium"
+        android:text="* All appointments are made max 2 weeks in advance"
+        android:textColor="@color/burgundy"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/slots_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rates_langs" />
+    <TextView
+        android:id="@+id/slots_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/baseline_calendar_month_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/estedad_medium"
+        android:text="Slots:"
+        android:textColor="@color/burgundy"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appointment_info" />
+
+    <RadioGroup
+        android:id="@+id/language_RG"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/days_avail_SG"
+        app:layout_constraintStart_toEndOf="@+id/slots_tv"
+        app:layout_constraintTop_toBottomOf="@+id/appointment_info"/>
+
+    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+        android:id="@+id/days_avail_SG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="50dp"
+        android:layout_marginTop="110dp"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        app:borderColor="@color/burgundy"
+        app:borderWidth="1dp"
+        app:divider="@color/burgundy"
+        app:dividerPadding="10dp"
+        app:dividerWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/language_RG"
+        app:position="0"
+        app:radius="30dp"
+        app:ripple="true"
+        app:rippleColor="@color/darker_than_background"
+        app:selectedBackground="@color/recycler_view_background"
+        app:selectionAnimationInterpolator="overshoot" />
+
+    <com.addisonelliott.segmentedbutton.SegmentedButtonGroup
+        android:id="@+id/hours_avail_SG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="50dp"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal"
+        app:borderColor="@color/burgundy"
+        app:selectionAnimationInterpolator="bounce"
+        app:borderWidth="1dp"
+        app:divider="@color/burgundy"
+        app:dividerPadding="10dp"
+        app:dividerWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/days_avail_SG"
+        app:position="0"
+        app:radius="30dp"
+        app:ripple="true"
+        app:rippleColor="@color/darker_than_background"
+        app:selectedBackground="@color/recycler_view_background" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/book_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:padding="8dp"
+        android:background="@drawable/btn"
+        android:drawableStart="@drawable/baseline_add_24"
+        android:fontFamily="@font/estedad_bold"
+        android:text="Make Appointment"
+        android:textAlignment="center"
+        android:textColor="@color/recycler_view_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hours_avail_SG"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

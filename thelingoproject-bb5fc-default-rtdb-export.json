@@ -1,0 +1,227 @@
+{
+  "instructors": {
+    "Alex Fry": {
+      "availability": {
+        "day": {
+          "d1": "Sun",
+          "d2": "Mon",
+          "d3": "Tue",
+          "d4": "Wed",
+          "dn": "Thurs"
+        },
+        "duration": 1,
+        "time": {
+          "end": 3,
+          "start": 12
+        }
+      },
+      "biography": "Masters in English Studies from Brown. Native English speaker and Spectacular Spanish speaker.",
+      "image": "https://images.unsplash.com/photo-1619380612094-d06429fa92d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTIzfHx0ZWFjaGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+      "languages": {
+        "l1": "English",
+        "l2": "Spanish"
+      },
+      "name": "Alex Fry",
+      "rates": {
+        "r1": 30,
+        "r2": 35
+      },
+      "slots": {
+        "Mon": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Sun": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Thurs": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Tue": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Wed": [
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "zoom": "https://zoom.us/j/99914125768?pwd=WjJaMVRLTjN1bmVXZk9LcXFQU0ZmQT09"
+    },
+    "Andrea Sovano": {
+      "availability": {
+        "day": {
+          "d1": "Mon",
+          "d2": "Tue",
+          "d3": "Wed",
+          "dn": "Thurs"
+        },
+        "duration": 1,
+        "time": {
+          "end": 3,
+          "start": 12
+        }
+      },
+      "biography": "Masters in Language Studies from Yale. Native Spanish speaker and Spectacular English speaker.",
+      "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+      "languages": {
+        "l1": "English",
+        "l2": "Spanish"
+      },
+      "name": "Andrea Sovano",
+      "rates": {
+        "r1": 30,
+        "r2": 35
+      },
+      "slots": {
+        "Mon": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Thurs": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Tue": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "Wed": [
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      "zoom": "https://zoom.us/j/99914125768?pwd=WjJaMVRLTjN1bmVXZk9LcXFQU0ZmQT09"
+    },
+    "Chris Monet": {
+      "availability": {
+        "day": {
+          "d1": "Mon",
+          "d2": "Tue",
+          "d3": "Wed",
+          "dn": "Thurs"
+        },
+        "duration": 1,
+        "time": {
+          "end": 4,
+          "start": 1
+        }
+      },
+      "biography": "I've always been fascinated with language learning. Native French speaker and Amazing Italian speaker.",
+      "image": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fHRlYWNoZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      "languages": {
+        "l1": "French",
+        "l2": "Italian"
+      },
+      "name": "Chris Monet",
+      "rates": {
+        "r1": 30,
+        "r2": 30
+      },
+      "slots": {
+        "Mon": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Thurs": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Tue": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Wed": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "zoom": "https://zoom.us/j/99914125768?pwd=WjJaMVRLTjN1bmVXZk9LcXFQU0ZmQT09"
+    },
+    "Madeline Poh": {
+      "availability": {
+        "day": {
+          "d1": "Sun",
+          "d2": "Mon",
+          "dn": "Tue"
+        },
+        "duration": 1,
+        "time": {
+          "end": 2,
+          "start": 12
+        }
+      },
+      "biography": "Passionate about language learning. Native Korean speaker and Spectacular English speaker.",
+      "image": "https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2069&q=80",
+      "languages": {
+        "l1": "English",
+        "l2": "Korean"
+      },
+      "name": "Madeline Poh",
+      "rates": {
+        "r1": 30,
+        "r2": 25
+      },
+      "slots": {
+        "Sun": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "Mon": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "Tue": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+        "zoom": "https://zoom.us/j/99914125768?pwd=WjJaMVRLTjN1bmVXZk9LcXFQU0ZmQT09"
+      }
+  },
+  "users": {
+    "cE3YwCDoHbRvhJiqeNYRDMVgWMr1": {
+      "name": "jazzy"
+    }
+  }
+}

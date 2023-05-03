@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="290dp"
+    android:layout_height="170dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="8dp"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/darker_than_background"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/in_how_long_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IN 3 DAYS"
+            android:fontFamily="@font/estedad_semibold"
+            android:textColor="#601212"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/with_who_date_TV"
+            android:layout_width="165dp"
+            android:layout_height="48dp"
+            android:fontFamily="@font/estedad_medium"
+            android:lines="2"
+            android:maxLines="2"
+            android:text="Korean with Madeline, May 8th "
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/in_how_long_TV" />
+
+        <TextView
+            android:id="@+id/time_duration_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:00 AM, 1 hour"
+            android:textSize="12sp"
+            android:fontFamily="@font/estedad_medium"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/with_who_date_TV" />
+
+        <TextView
+            android:id="@+id/zoom_link_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:fontFamily="@font/estedad_medium"
+            android:text="https://www.zoom.us/"
+            android:textColor="#3F51B5"
+            android:textSize="8sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_duration_TV" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/reg_tutor_img"
+            android:layout_width="79dp"
+            android:layout_height="83dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="6dp"
+            android:src="@drawable/byron_bay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

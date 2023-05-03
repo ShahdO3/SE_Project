@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tutor_row"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="8dp"
+    android:backgroundTint="#00FFFFFF"
+    android:clipToOutline="true"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="20dp"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/circle_rectangle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/instructor_name_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/estedad_semibold"
+            android:text="Andrea Sovano"
+            android:textColor="@color/burgundy"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tutor_pic"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/t_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/estedad_medium"
+            android:text="Teaches:"
+            android:textColor="@color/burgundy"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tutor_pic"
+            app:layout_constraintTop_toBottomOf="@id/instructor_name_TV" />
+
+        <TextView
+            android:id="@+id/teaches_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/estedad_regular"
+            android:text="English, Spanish"
+            android:textColor="@color/burgundy"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/t_tv"
+            app:layout_constraintTop_toBottomOf="@id/instructor_name_TV" />
+
+        <TextView
+            android:id="@+id/a_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/estedad_medium"
+            android:text="Available: "
+            android:textColor="@color/burgundy"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/t_tv"
+            app:layout_constraintTop_toBottomOf="@id/t_tv" />
+
+        <TextView
+            android:id="@+id/availability_TV"
+            android:layout_width="171dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/estedad_regular"
+            android:lines="2"
+            android:maxLines="3"
+            android:singleLine="false"
+            android:text="Mon-Thurs from 12:00 - 3:00 PM"
+            android:textColor="@color/burgundy"
+            android:textSize="12sp"
+            app:flow_wrapMode="chain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.875"
+            app:layout_constraintStart_toEndOf="@+id/tutor_pic"
+            app:layout_constraintTop_toBottomOf="@+id/a_tv" />
+
+        <TextView
+            android:id="@+id/lang_rates_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/estedad_medium"
+            android:text="English:\nSpanish:"
+            android:textColor="@color/burgundy"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tutor_pic"
+            app:layout_constraintTop_toBottomOf="@+id/availability_TV" />
+
+        <TextView
+            android:id="@+id/rates_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/estedad_medium"
+            android:text="USD 30/hour\nUSD 35/hour"
+            android:textColor="@color/burgundy"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/lang_rates_TV"
+            app:layout_constraintTop_toBottomOf="@+id/availability_TV" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/tutor_pic"
+            android:layout_width="154dp"
+            android:layout_height="175dp"
+            android:background="@drawable/circle_rectangle"
+            android:clipToOutline="true"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/byron_bay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.466" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
