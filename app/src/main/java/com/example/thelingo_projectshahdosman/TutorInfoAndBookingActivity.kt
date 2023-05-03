@@ -320,8 +320,8 @@ class TutorInfoAndBookingActivity : AppCompatActivity() {
                                         snack.animationMode = Snackbar.ANIMATION_MODE_SLIDE
                                         snack.setAction("Close"){ snack.dismiss()}
                                         snack.show()
-//                                        scheduleNotification(daysTill ,tutorData.name!!, lang,
-//                                            "$hour:00", date)
+                                        scheduleNotification(daysTill ,tutorData.name!!, lang,
+                                            "$hour:00", date)
                                     }else{
                                         val snack = Snackbar.make(binding.tutorBookingView,
                                             "Class today at $hour:00 so no need for Reminder!",
