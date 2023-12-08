@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"><b>The Lingo</b></string>
+    <string name="app_name"><b>Noted Organization App</b></string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="already_have_an_account_b_sign_in_b">Already have an account? <b>Sign In</b></string>

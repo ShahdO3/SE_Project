@@ -1,4 +1,4 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
 class TutorsData():java.io.Serializable {
     var name:String? = null

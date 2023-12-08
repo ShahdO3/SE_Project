@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="to find your tutor today!"
+            android:text="Get organized today!"
             android:fontFamily="@font/poppins_semibold"
             android:textAlignment="center"
             android:textColor="@color/black"

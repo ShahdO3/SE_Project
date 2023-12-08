@@ -1,8 +1,6 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -27,13 +25,13 @@ class SplashScreen : Fragment() {
             val currentUser = FirebaseAuth.getInstance().currentUser
 
             move = if (currentUser == null){
-                SplashScreenDirections.actionSplashScreenToSignUpFragment()
+                SplashScreenDirections.actionSplashScreen2ToSignInFragment2()
             }else{
                 val sharedPref = requireActivity().getSharedPreferences("savePic",
                     Context.MODE_PRIVATE)
                 val imgUri = sharedPref.getString("imgUri", "")!!
                 println("sent image = $imgUri")
-                SplashScreenDirections.actionSplashScreenToProfilePageFragment(imgUri)
+                SplashScreenDirections.actionSplashScreen2ToHomeActivity(imgUri)
             }
             findNavController().navigate(move)
         }, 1000)

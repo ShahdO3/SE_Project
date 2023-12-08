@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signing_up_navigation"
+    app:startDestination="@id/profilePageFragment">
+
+    <fragment
+        android:id="@+id/profilePageFragment"
+        android:name="com.example.notedApp.ProfilePageFragment"
+        android:label="fragment_profile_page"
+        tools:layout="@layout/fragment_profile_page" >
+        <argument
+            android:name="imageUri"
+            app:argType="string"
+            android:defaultValue="bla" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Robin" />
+        <action
+            android:id="@+id/action_profilePageFragment_to_findTutorsFrag"
+            app:destination="@id/findTutorsFrag"
+            app:popUpTo="@id/profilePageFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profilePageFragment_to_reservedClassDialogFragment"
+            app:destination="@id/reservedClassDialogFragment" />
+        <action
+            android:id="@+id/action_profilePageFragment_to_newNotesBottomDialogF"
+            app:destination="@id/newNotesBottomDialogF" />
+        <action
+            android:id="@+id/action_profilePageFragment_to_startActivity"
+            app:destination="@id/startActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/findTutorsFrag"
+        android:name="com.example.notedApp.FindTutorsFrag"
+        android:label="fragment_find_tutors"
+        tools:layout="@layout/fragment_find_tutors" >
+        <action
+            android:id="@+id/action_findTutorsFrag_to_profilePageFragment"
+            app:destination="@id/profilePageFragment"
+            app:popUpTo="@id/findTutorsFrag"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string"
+            android:defaultValue="blah" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="Robin" />
+    </fragment>
+    <dialog
+        android:id="@+id/reservedClassDialogFragment"
+        android:name="com.example.notedApp.ReservedClassDialogFragment"
+        android:label="ReservedClassDialogFragment" >
+        <argument
+            android:name="inHowLong"
+            app:argType="string" />
+        <argument
+            android:name="nameDate"
+            app:argType="string" />
+        <argument
+            android:name="image"
+            app:argType="string" />
+        <argument
+            android:name="time"
+            app:argType="string" />
+        <argument
+            android:name="zoomLing"
+            app:argType="string" />
+        <argument
+            android:name="hour"
+            app:argType="integer" />
+    </dialog>
+    <dialog
+        android:id="@+id/newNotesBottomDialogF"
+        android:name="com.example.notedApp.newNotesBottomDialogF"
+        android:label="fragment_new_notes_bottom_dialog"
+        tools:layout="@layout/fragment_new_notes_bottom_dialog" >
+        <action
+            android:id="@+id/action_newNotesBottomDialogF_to_profilePageFragment"
+            app:destination="@id/profilePageFragment" />
+    </dialog>
+    <activity
+        android:id="@+id/startActivity"
+        android:name="com.example.notedApp.StartActivity"
+        android:label="activity_start"
+        tools:layout="@layout/activity_start" />
+</navigation>

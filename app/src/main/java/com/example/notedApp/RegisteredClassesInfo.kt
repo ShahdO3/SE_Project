@@ -1,6 +1,5 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
-import android.net.Uri
 import java.util.*
 
 class RegisteredClassesInfo() {

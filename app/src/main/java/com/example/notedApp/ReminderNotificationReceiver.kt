@@ -1,4 +1,4 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
 import android.Manifest
 import android.app.NotificationChannel

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signing_up_nav"
+    app:startDestination="@id/splashScreen2">
+
+    <fragment
+        android:id="@+id/signInFragment2"
+        android:name="com.example.notedApp.SignInFragment"
+        android:label="SignInFragment" >
+        <action
+            android:id="@+id/action_signInFragment2_to_signUpFragment2"
+            app:destination="@id/signUpFragment2" />
+        <action
+            android:id="@+id/action_signInFragment2_to_homeActivity"
+            app:destination="@id/homeActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment2"
+        android:name="com.example.notedApp.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment2_to_signInFragment2"
+            app:destination="@id/signInFragment2" />
+        <action
+            android:id="@+id/action_signUpFragment2_to_signUpSuccessFrag"
+            app:destination="@id/signUpSuccessFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreen2"
+        android:name="com.example.notedApp.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen2_to_signInFragment2"
+            app:destination="@id/signInFragment2" />
+        <action
+            android:id="@+id/action_splashScreen2_to_homeActivity"
+            app:destination="@id/homeActivity" />
+    </fragment>
+    <dialog
+        android:id="@+id/signUpSuccessFrag"
+        android:name="com.example.notedApp.SignUpSuccessFrag"
+        android:label="SignUpSuccessFrag" >
+        <action
+            android:id="@+id/action_signUpSuccessFrag_to_homeActivity"
+            app:destination="@id/homeActivity" />
+        <argument
+            android:name="imageURL"
+            app:argType="string" />
+    </dialog>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.notedApp.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" >
+        <argument
+            android:name="imageURL"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue=" ." />
+    </activity>
+</navigation>

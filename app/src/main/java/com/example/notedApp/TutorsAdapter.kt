@@ -1,4 +1,4 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
 import android.content.Context
 import android.content.Intent
@@ -11,10 +11,8 @@ import android.widget.Filterable
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.text.isDigitsOnly
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.thelingo_projectshahdosman.databinding.FindTutorsRowBinding
-import com.google.android.material.animation.AnimationUtils
+import com.example.notedApp.databinding.FindTutorsRowBinding
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso

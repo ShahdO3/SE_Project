@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+<!--    <item-->
+<!--    android:id="@+id/blank1"-->
+<!--    android:title=""-->
+<!--    android:enabled="false"-->
+<!--    app:showAsAction="ifRoom"-->
+<!--    />-->
+    <item
+        android:id="@+id/notes"
+        android:title="Notes"
+        android:icon="@drawable/baseline_note_alt_24"
+        />
+    <!--        android:icon="@drawable/today_24"-->
+<!--        app:cnb_iconColor="@color/pink_beige"-->
+<!--        app:cnb_background = "#40D7BFD9"-->
+
+    <item
+        android:id="@+id/reminders"
+        android:title="Reminders"
+        android:icon="@drawable/baseline_calendar_month_24"
+        />
+    <!--        android:icon="@drawable/icons8_todo_list_60"-->
+
+    <item
+        android:id="@+id/todolist"
+        android:title="To-Do List"
+        android:icon="@drawable/baseline_format_list_bulleted_24"
+        />
+    <!--        android:icon="@drawable/calendar_month_24"-->
+
+    <item
+        android:id="@+id/blank2"
+        android:title=""
+        android:enabled="false"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>

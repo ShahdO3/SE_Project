@@ -1,34 +1,21 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.core.text.isDigitsOnly
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.thelingo_projectshahdosman.databinding.FindTutorsRowBinding
-import com.example.thelingo_projectshahdosman.databinding.FragmentFindTutorsBinding
+import com.example.notedApp.databinding.FragmentFindTutorsBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
-import java.io.File
-import java.sql.Time
-import java.time.format.DateTimeParseException
-import java.util.*
-import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
 
 
 class FindTutorsFrag : Fragment() {

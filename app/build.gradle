@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.thelingo_projectshahdosman'
+    namespace 'com.example.notedApp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.thelingo_projectshahdosman"
+        applicationId "com.example.notedApp"
         minSdk 33
         targetSdk 33
         versionCode 1

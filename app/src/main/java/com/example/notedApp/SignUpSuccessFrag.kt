@@ -1,4 +1,4 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
 
 import android.graphics.Bitmap
@@ -14,7 +14,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog
-import com.example.thelingo_projectshahdosman.databinding.FragmentSignUpSuccessBinding
+import com.example.notedApp.databinding.FragmentSignUpSuccessBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -67,7 +67,7 @@ class SignUpSuccessFrag : DialogFragment() {
                 progress.show()
                 databaseRef.child("name").setValue(name.text.toString())
                 println(user.uid)
-                val imageUri = Uri.parse(args.imageUrl)
+                val imageUri = Uri.parse(args.imageURL)
                 //compressing image before putting in Firebase Storage for faster upload time
                 var bmp: Bitmap? = null
                 try {
@@ -96,7 +96,7 @@ class SignUpSuccessFrag : DialogFragment() {
                                         if (it.isSuccessful) {
                                             progress.dismiss()
                                             val move =
-                                                SignUpSuccessFragDirections.actionSignUpSuccessFragToProfilePageFragment(
+                                                SignUpSuccessFragDirections.actionSignUpSuccessFragToHomeActivity(
                                                     img.toString(),
                                                     name.text.toString()
                                                 )

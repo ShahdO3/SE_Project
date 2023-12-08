@@ -1,4 +1,4 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -14,16 +14,14 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.isDigitsOnly
 import androidx.core.view.get
 import androidx.core.view.setPadding
 import com.addisonelliott.segmentedbutton.SegmentedButton
-import com.example.thelingo_projectshahdosman.databinding.FragmentTutorInfoAndBookingBinding
+import com.example.notedApp.databinding.FragmentTutorInfoAndBookingBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
-import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -320,6 +318,7 @@ class TutorInfoAndBookingActivity : AppCompatActivity() {
                                         snack.animationMode = Snackbar.ANIMATION_MODE_SLIDE
                                         snack.setAction("Close"){ snack.dismiss()}
                                         snack.show()
+
                                         scheduleNotification(daysTill ,tutorData.name!!, lang,
                                             "$hour:00", date)
                                     }else{

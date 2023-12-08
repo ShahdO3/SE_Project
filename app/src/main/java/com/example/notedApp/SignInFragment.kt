@@ -1,95 +1,49 @@
-package com.example.thelingo_projectshahdosman
+package com.example.notedApp
 
-import android.Manifest
 import android.app.Activity
-import android.app.ProgressDialog
-import android.content.Intent
-import android.content.pm.PackageManager
+import android.app.AlertDialog
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog
-import com.example.thelingo_projectshahdosman.databinding.FragmentSignUpBinding
+import com.example.notedApp.databinding.FragmentSignInBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
 
-class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
-    lateinit var progress:BeautifulProgressDialog
-    lateinit var binding: FragmentSignUpBinding
+class SignInFragment : Fragment() {
+    lateinit var binding: FragmentSignInBinding
     lateinit var googleSignInC: GoogleSignInClient
     var imgUri: Uri? = null
     lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var databaseRef: DatabaseReference
-    private var chosePhoto:Boolean = false
-    private var picPhoto = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) {result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            imgUri = result.data!!.data!!
-            println("here got uri = $imgUri")
-            requireActivity().contentResolver.takePersistableUriPermission(
-                imgUri!!,
-                Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            displayPic()
-        }else
-            println("result code is n")
-
-    }
-    private fun getPermission(){
-        if (ContextCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.READ_MEDIA_IMAGES)
-            != PackageManager.PERMISSION_GRANTED) {
-//                permissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
-//                shouldShowRequestPermissionRationale(Manifest.permission.READ_EXTERNAL_STORAGE)
-            ActivityCompat.requestPermissions(requireActivity(),
-                arrayOf(Manifest.permission.READ_MEDIA_IMAGES), 0)
-        }
-        else if (ContextCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-            != PackageManager.PERMISSION_GRANTED) {
-            println("permission denied for MANAGE_EXTERNAL_STORAGE")
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)
-        }
-
-    }
+    lateinit var progress:BeautifulProgressDialog
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
-
+        var emailCorrect = false
+        var passCorrect = false
         progress = BeautifulProgressDialog(activity,
             BeautifulProgressDialog.withLottie, "Please wait...")
         progress.setLottieLocation("progressLottieAesthetic.json")
         progress.setLottieLoop(true)
         progress.setLayoutColor(Color.WHITE)
 
-        databaseRef = FirebaseDatabase
-            .getInstance()
-            .getReference("instructors")
-
+        binding = FragmentSignInBinding.inflate(inflater, container, false)
         val googleSignIO = GoogleSignInOptions
             .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -102,27 +56,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             progress.show()
             signInGoogle()
         }
-
-        val mList = mutableListOf<TutorsData>()
-
-        binding.uploadImageBtn.setOnClickListener {
-            getPermission()
-            galleryIntent()}
-        binding.uploadImage.setOnClickListener  {
-            getPermission()
-            galleryIntent()}
-
-        var emailCorrect = false
-        var passCorrect = false
-        var passMatching = false
-
-
-        firebaseAuth = FirebaseAuth.getInstance()
-        binding.welcome.startAnimation(
-            AnimationUtils.loadAnimation(
-                context,
-                R.anim.fade_in_up))
-
         /*
         CHECKING EMAIL AND PASS'S ARE CORRECT WHILE USER IS TYPING THEM
          */
@@ -143,33 +76,53 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                 passCorrect = true
             }
         }
-        binding.passEtReEnter.addTextChangedListener {
-            if (binding.passEt.text.toString() != binding.passEtReEnter.text.toString())
-                binding.rePassTIL.helperText = "Passwords Not Matching!"
-            else {
-                binding.rePassTIL.helperText = null
-                passMatching = true
-            }
+
+        binding.dontHaveAccTV.setOnClickListener {
+            val move = SignInFragmentDirections.
+                actionSignInFragment2ToSignUpFragment2()
+            Navigation.findNavController(binding.root).navigate(move)
         }
 
-        binding.alreadyHaveAccTV.setOnClickListener {
-            val move = SignUpFragmentDirections.
-                actionSignUpFragmentToSignInFragment()
-            findNavController().navigate(move)
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        binding.forgotPass.setOnClickListener {
+            if (emailCorrect) {
+                val email = binding.emailEt.text.toString()
+                AlertDialog.Builder(context)
+                    .setTitle("Reset Password")
+                    .setIcon(R.drawable.lock)
+                    .setMessage("Are you sure you want to reset the password for the account" +
+                            " with email $email?")
+                    .setPositiveButton("Yes"){ dialog, _->
+                        progress.setMessage("Sending email...")
+                        progress.show()
+                        firebaseAuth.sendPasswordResetEmail(email).addOnCompleteListener {
+                            if (it.isSuccessful){
+                                Toast.makeText(context, "Email Sent, check your inbox!",
+                                    Toast.LENGTH_LONG).show()
+                            }else
+                                Toast.makeText(context, it.exception!!.localizedMessage,
+                                    Toast.LENGTH_LONG).show()
+                            progress.dismiss()
+                        }
+                    }
+                    .setNegativeButton("Cancel"){dialog, _->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }else
+                Toast.makeText(context, "Must Enter Email First!", Toast.LENGTH_LONG).show()
         }
-
-        binding.loginBtn.setOnClickListener {
-
+        binding.signinBtn.setOnClickListener {
             val email = binding.emailEt.text.toString()
             val pass = binding.passEt.text.toString()
-
-            if (emailCorrect && passCorrect && passMatching && chosePhoto){
+            if (emailCorrect && passCorrect){
                 progress.show()
-                firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
                     if (it.isSuccessful){
                         progress.dismiss()
-                        val move = SignUpFragmentDirections.
-                        actionSignUpFragmentToSignUpSuccessFrag(imgUri.toString())
+                        val move = SignInFragmentDirections.
+                        actionSignInFragment2ToHomeActivity(imgUri.toString())
                         findNavController().navigate(move)
                     }else{
                         progress.dismiss()
@@ -184,29 +137,19 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                     binding.emailEt.error = "Must Enter an Email!"
                 if (pass.isBlank())
                     binding.passTIL.helperText = "Must Enter a Password"
-                if (!chosePhoto)
-                    Toast.makeText(context,
-                        "Must choose a photo to proceed",
-                        Toast.LENGTH_LONG).show()
-
             }
-
-
         }
 
         return binding.root
     }
-
-
     private fun signInGoogle() {
         val signingIntent = googleSignInC.signInIntent
         googleIntent.launch(signingIntent)
     }
     private var googleIntent = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()){
-
         if (it.resultCode == Activity.RESULT_OK){
-            GoogleSignIn.getSignedInAccountFromIntent(it.data).addOnCompleteListener {task->
+            GoogleSignIn.getSignedInAccountFromIntent(it.data).addOnCompleteListener { task->
                 if (task.isSuccessful){
                     val account: GoogleSignInAccount? = task.result
                     if (account != null){
@@ -214,14 +157,14 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         val cred = GoogleAuthProvider.getCredential(account.idToken, null)
                         firebaseAuth.signInWithCredential(cred).addOnCompleteListener {signTask->
                             if (signTask.isSuccessful){
-
                                 progress.dismiss()
                                 println("sign in successful but idk whats up")
-                                Toast.makeText(requireContext(), "Signed Up Successfully!",
-                                    Toast.LENGTH_LONG).show()
-                                val move = SignUpFragmentDirections.
-                                actionSignUpFragmentToSignUpSuccessFrag(imgUri.toString())
+                                val move = SignInFragmentDirections.
+                                actionSignInFragment2ToHomeActivity(imgUri.toString())
                                 findNavController().navigate(move)
+
+                                Toast.makeText(requireContext(), "Signed In Successfully, Welcome Back!",
+                                    Toast.LENGTH_LONG).show()
                             }else {
                                 progress.dismiss()
                                 Toast.makeText(
@@ -229,6 +172,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                                     Toast.LENGTH_LONG
                                 ).show()
                             }
+
                         }
                     }else {
                         progress.dismiss()
@@ -252,32 +196,6 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         println("res code not ok")
     }
-
-    private fun retrieveAndSavePic(){
-        picPhoto.launch(Intent(Intent.ACTION_OPEN_DOCUMENT).also {
-            it.type = "image/*"
-            it.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
-            it.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        })
-
-
-    }
-    private fun displayPic(){
-        if (ContextCompat.checkSelfPermission(requireContext(),
-                Manifest.permission.READ_MEDIA_IMAGES)
-            == PackageManager.PERMISSION_GRANTED)
-            println("permission granted")
-        chosePhoto = true
-        binding.uploadImage.visibility = View.VISIBLE
-        binding.uploadImageBtn.visibility = View.INVISIBLE
-        binding.uploadImage.setImageURI(imgUri)
-    }
-    private fun galleryIntent(){
-        retrieveAndSavePic()
-        displayPic()
-    }
-
-
 
 
 }
