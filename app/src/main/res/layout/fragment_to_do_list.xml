@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ToDoListFragment">
+
+
+    <TextView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_purple"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintEnabled="false">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Tasktxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:hint="Enter To-Do"
+                android:paddingStart="12dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="12dp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/SubmitBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="350dp"
+            android:background="@drawable/submitarrow" />
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/topround"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/background" />
+
+    <ImageButton
+        android:id="@+id/reminderBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/baseline_calendar_month_24"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/btn2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/baseline_format_list_bulleted_24"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintStart_toEndOf="@+id/reminderBtn"/>
+
+    <ImageButton
+        android:id="@+id/NotesBtn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/baseline_note_alt_24"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintStart_toEndOf="@+id/btn2"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ToDoRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="435dp"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/background" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,4 +63,9 @@
             app:argType="string"
             android:defaultValue=" ." />
     </activity>
+    <fragment
+        android:id="@+id/toDoListFragment"
+        android:name="com.example.notedApp.ToDoListFragment"
+        android:label="fragment_to_do_list"
+        tools:layout="@layout/fragment_to_do_list" />
 </navigation>
