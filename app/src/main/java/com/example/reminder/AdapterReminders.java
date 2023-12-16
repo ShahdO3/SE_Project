@@ -1,6 +1,5 @@
 package com.example.reminder;
-/*reference to set on click listener on delete button: - youtube channel name = coding in flow,recycler view series video 4 and 5
- * */
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
