@@ -83,7 +83,20 @@
                 app:itemIconTint="#457B8C"
                 app:itemTextColor="#45498C"
                 app:menu="@menu/nav_menu_with_btn" />
+
+
         </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fAbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/burgundy"
+            android:contentDescription="TODO"
+            android:src="@drawable/baseline_add_24"
+            app:layout_anchor="@id/bAppB"
+            app:rippleColor="@color/burgundy" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
