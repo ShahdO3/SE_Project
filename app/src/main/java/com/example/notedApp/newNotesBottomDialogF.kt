@@ -8,11 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notedApp.databinding.FragmentNewNotesBottomDialogBinding
-import com.example.notedApp.databinding.FragmentProfilePageBinding
-import com.example.notedApp.databinding.FragmentToDoListBinding
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -60,9 +56,9 @@ class newNotesBottomDialogF : Fragment() {
 
                         binding.tasktitle.text = null
                         binding.taskDesc.text = null
-//                        val move = Direction
-//                            .actionProfilePageFragmentToNewNotesBottomDialogF()
-//                        findNavController().navigate(move)
+                        val move = NewNotesFragmentDirections
+                            .actionNewNotesFragmentToProfilePageFragment()
+                        findNavController().navigate(move)
                     }else{
                         Toast.makeText(context,
                             "Failed to add Note to Firebase", Toast.LENGTH_SHORT).show()

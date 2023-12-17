@@ -52,15 +52,6 @@ class ToDoListFragment : Fragment(), ToDoAdapter.ToDoAdapterClicksInterface {
 
 
     private fun RegisterEvents(){
-//
-//        binding.reminderBtn.setOnClickListener {
-//            //navController.navigate(R.id.(from todo_to_reminders))
-//        }
-//
-//        binding.NotesBtn.setOnClickListener {
-//            //navController.navigate(R.id.(from todo_to_notes))
-//        }
-
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){

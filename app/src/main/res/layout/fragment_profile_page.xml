@@ -21,38 +21,26 @@
         android:id="@+id/notes_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:background="#74F4F9FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notesTV"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/notes_item" />
 
     <TextView
         android:id="@+id/nothing_reg_TV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/estedad_bold"
-        android:text="No Notes Yet..."
         android:layout_margin="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/notes_recycler"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notesTV" />
-
-    <TextView
-        android:id="@+id/notesTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="@font/estedad_regular"
-        android:text="Notes"
-        android:textColor="@color/black"
-        android:textSize="25sp"
+        android:fontFamily="@font/estedad_bold"
+        android:textSize="20dp"
+        android:text="No Notes Yet..."
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/bottomAppBar"

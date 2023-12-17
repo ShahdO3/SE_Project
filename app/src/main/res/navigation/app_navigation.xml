@@ -28,8 +28,8 @@
             android:id="@+id/action_profilePageFragment_to_toDoListFragment2"
             app:destination="@id/toDoListFragment2" />
         <action
-            android:id="@+id/action_profilePageFragment_to_newNotesBottomDialogF"
-            app:destination="@id/newNotesBottomDialogF" />
+            android:id="@+id/action_profilePageFragment_to_newNotesFragment"
+            app:destination="@id/newNotesFragment" />
         <!--        <action-->
 <!--            android:id="@+id/action_profilePageFragment_to_mainActivity"-->
 <!--            app:destination="@id/mainActivity" />-->
@@ -75,13 +75,18 @@
 <!--            app:destination="@id/mainActivity" />-->
     </fragment>
     <fragment
-        android:id="@+id/newNotesBottomDialogF"
-        android:name="com.example.notedApp.newNotesBottomDialogF"
-        android:label="fragment_new_notes_bottom_dialog"
-        tools:layout="@layout/fragment_new_notes_bottom_dialog" >
+        android:id="@+id/newNotesFragment"
+        android:name="com.example.notedApp.NewNotesFragment"
+        android:label="NewNotesFragment" >
         <action
-            android:id="@+id/action_newNotesBottomDialogF_to_profilePageFragment"
+            android:id="@+id/action_newNotesFragment_to_profilePageFragment"
             app:destination="@id/profilePageFragment" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="desc"
+            app:argType="string" />
     </fragment>
 
     <!--    <activity-->

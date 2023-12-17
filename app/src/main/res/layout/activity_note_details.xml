@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_purple"
-    android:padding="16dp"
-    tools:context=".NoteDetailsActivity">
+    android:padding="16dp">
+<!--    tools:context=".NoteDetailsActivity">-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,15 +22,15 @@
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
-    <ImageButton
-        android:id="@+id/save_note_btn"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="11dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/baseline_done_24"
-        app:tint="@color/black" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/save_note_btn"-->
+<!--        android:layout_width="36dp"-->
+<!--        android:layout_height="36dp"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_marginEnd="11dp"-->
+<!--        android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--        android:src="@drawable/baseline_done_24"-->
+<!--        app:tint="@color/black" />-->
 
 
 </RelativeLayout>
