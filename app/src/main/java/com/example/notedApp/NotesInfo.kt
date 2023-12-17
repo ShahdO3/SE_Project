@@ -1,6 +1,4 @@
 package com.example.notedApp
 
-class NotesInfo {
-    var title: String? = null
-    var description: String? = null
-}
+data class NotesInfo (var title: String?,
+                      var description: String?)

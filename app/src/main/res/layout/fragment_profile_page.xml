@@ -17,14 +17,14 @@
     android:backgroundTintMode="multiply">
 
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/notes_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:background="#74F4F9FF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/notesTV"
         tools:listitem="@layout/notes_item" />
@@ -54,43 +54,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottomAppBar"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bAppB"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@android:color/transparent"
+            app:fabAlignmentMode="end"
+            app:fabAnimationMode="slide"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="50dp"
+            app:fabCradleVerticalOffset="2dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginEnd="16dp"
+                android:background="#336E7477"
+                app:itemIconTint="#457B8C"
+                app:itemTextColor="#45498C"
+                app:menu="@menu/nav_menu_with_btn" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fAbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/burgundy"
+            android:contentDescription="TODO"
+            android:src="@drawable/baseline_add_24"
+            app:layout_anchor="@id/bAppB"
+            app:rippleColor="@color/burgundy" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bAppB"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        android:backgroundTint="@android:color/transparent"
-        app:fabAnimationMode="slide"
-        app:fabAlignmentMode="end"
-        app:fabCradleMargin="15dp"
-        app:fabCradleRoundedCornerRadius="50dp"
-        app:fabCradleVerticalOffset="2dp">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginEnd="16dp"
-            app:itemTextColor="#45498C"
-            app:itemIconTint="#457B8C"
-            app:menu="@menu/nav_menu_with_btn"
-            android:background="#336E7477"
-            />
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fAbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="TODO"
-        android:backgroundTint="@color/burgundy"
-        app:rippleColor="@color/burgundy"
-        app:layout_anchor="@id/bAppB"
-        android:src="@drawable/baseline_add_24"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

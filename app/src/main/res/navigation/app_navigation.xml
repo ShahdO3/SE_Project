@@ -19,38 +19,20 @@
             app:argType="string"
             android:defaultValue="Robin" />
         <action
-            android:id="@+id/action_profilePageFragment_to_findTutorsFrag"
-            app:destination="@id/findTutorsFrag"
-            app:popUpTo="@id/profilePageFragment"
-            app:popUpToInclusive="true" />
-        <action
             android:id="@+id/action_profilePageFragment_to_reservedClassDialogFragment"
             app:destination="@id/reservedClassDialogFragment" />
         <action
-            android:id="@+id/action_profilePageFragment_to_newNotesBottomDialogF"
-            app:destination="@id/newNotesBottomDialogF" />
-        <action
             android:id="@+id/action_profilePageFragment_to_startActivity"
             app:destination="@id/startActivity" />
-    </fragment>
-    <fragment
-        android:id="@+id/findTutorsFrag"
-        android:name="com.example.notedApp.FindTutorsFrag"
-        android:label="fragment_find_tutors"
-        tools:layout="@layout/fragment_find_tutors" >
         <action
-            android:id="@+id/action_findTutorsFrag_to_profilePageFragment"
-            app:destination="@id/profilePageFragment"
-            app:popUpTo="@id/findTutorsFrag"
-            app:popUpToInclusive="true" />
-        <argument
-            android:name="imageUrl"
-            app:argType="string"
-            android:defaultValue="blah" />
-        <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="Robin" />
+            android:id="@+id/action_profilePageFragment_to_toDoListFragment2"
+            app:destination="@id/toDoListFragment2" />
+        <action
+            android:id="@+id/action_profilePageFragment_to_newNotesBottomDialogF"
+            app:destination="@id/newNotesBottomDialogF" />
+        <!--        <action-->
+<!--            android:id="@+id/action_profilePageFragment_to_mainActivity"-->
+<!--            app:destination="@id/mainActivity" />-->
     </fragment>
     <dialog
         android:id="@+id/reservedClassDialogFragment"
@@ -75,7 +57,24 @@
             android:name="hour"
             app:argType="integer" />
     </dialog>
-    <dialog
+    <activity
+        android:id="@+id/startActivity"
+        android:name="com.example.notedApp.StartActivity"
+        android:label="activity_start"
+        tools:layout="@layout/activity_start" />
+    <fragment
+        android:id="@+id/toDoListFragment2"
+        android:name="com.example.notedApp.ToDoListFragment"
+        android:label="fragment_to_do_list"
+        tools:layout="@layout/fragment_to_do_list" >
+        <action
+            android:id="@+id/action_toDoListFragment2_to_profilePageFragment"
+            app:destination="@id/profilePageFragment" />
+<!--        <action-->
+<!--            android:id="@+id/action_toDoListFragment2_to_mainActivity"-->
+<!--            app:destination="@id/mainActivity" />-->
+    </fragment>
+    <fragment
         android:id="@+id/newNotesBottomDialogF"
         android:name="com.example.notedApp.newNotesBottomDialogF"
         android:label="fragment_new_notes_bottom_dialog"
@@ -83,10 +82,11 @@
         <action
             android:id="@+id/action_newNotesBottomDialogF_to_profilePageFragment"
             app:destination="@id/profilePageFragment" />
-    </dialog>
-    <activity
-        android:id="@+id/startActivity"
-        android:name="com.example.notedApp.StartActivity"
-        android:label="activity_start"
-        tools:layout="@layout/activity_start" />
+    </fragment>
+
+    <!--    <activity-->
+<!--        android:id="@+id/mainActivity"-->
+<!--        android:name="com.example.notedApp.HomeActivity"-->
+<!--        android:label="activity_main"-->
+<!--        tools:layout="@layout/activity_home" />-->
 </navigation>

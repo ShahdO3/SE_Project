@@ -15,12 +15,13 @@
         tools:layout_editor_absoluteX="82dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <!--        app:layout_constraintBottom_toTopOf="@+id/textView6"-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomAppBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -38,7 +39,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:hint="Enter To-Do"
+                android:fontFamily="@font/poppins_semibold"
+                android:hint="What do you want to do today..."
                 android:paddingStart="12dp"
                 android:paddingTop="15dp"
                 android:paddingEnd="12dp" />
@@ -49,59 +51,103 @@
             android:id="@+id/SubmitBtn"
             android:layout_width="50dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="350dp"
+            android:layout_marginLeft="320dp"
             android:background="@drawable/submitarrow" />
 
 
     </com.google.android.material.card.MaterialCardView>
 
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/topround"
-        app:cardCornerRadius="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/background" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView6"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:background="@drawable/topround"-->
+<!--        app:cardCornerRadius="50dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/background" />-->
 
-    <ImageButton
-        android:id="@+id/reminderBtn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/baseline_calendar_month_24"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintStart_toStartOf="parent"/>
+<!--    <ImageButton-->
+<!--        android:id="@+id/reminderBtn"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_marginStart="45dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="@drawable/baseline_calendar_month_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/background"-->
+<!--        app:layout_constraintStart_toStartOf="parent"/>-->
 
-    <ImageButton
-        android:id="@+id/btn2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/baseline_format_list_bulleted_24"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintStart_toEndOf="@+id/reminderBtn"/>
+<!--    <ImageButton-->
+<!--        android:id="@+id/btn2"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="@drawable/baseline_format_list_bulleted_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/background"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/reminderBtn"/>-->
 
-    <ImageButton
-        android:id="@+id/NotesBtn"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/baseline_note_alt_24"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintStart_toEndOf="@+id/btn2"/>
+<!--    <ImageButton-->
+<!--        android:id="@+id/NotesBtn"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:background="@drawable/baseline_note_alt_24"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/background"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/btn2"/>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ToDoRecycler"
         android:layout_width="match_parent"
         android:layout_height="435dp"
-        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottomAppBar"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bAppB"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@android:color/transparent"
+            app:fabAlignmentMode="end"
+            app:fabAnimationMode="slide"
+            app:fabCradleMargin="15dp"
+            app:fabCradleRoundedCornerRadius="50dp"
+            app:fabCradleVerticalOffset="2dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginEnd="16dp"
+                android:background="#336E7477"
+                app:itemIconTint="#457B8C"
+                app:itemTextColor="#45498C"
+                app:menu="@menu/nav_menu_with_btn" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fAbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/burgundy"
+            android:contentDescription="TODO"
+            android:src="@drawable/baseline_add_24"
+            app:layout_anchor="@id/bAppB"
+            app:rippleColor="@color/burgundy" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

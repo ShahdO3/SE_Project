@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Html
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -29,6 +30,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.basusingh.beautifulprogressdialog.BeautifulProgressDialog
+import com.example.notedApp.databinding.ActivityHomeBinding
+import com.example.notedApp.databinding.FragmentProfilePageBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -43,6 +46,7 @@ import java.io.IOException
 
 private lateinit var context:Context
 class HomeActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomeBinding
     private lateinit var imgUri : Uri
     private lateinit var auth: FirebaseAuth
     private lateinit var user: FirebaseUser
@@ -104,7 +108,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        Log.d("ugh", "in home activity or creating it")
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        Log.d("ugh", binding.root.toString())
+        setContentView(binding.root)
+
         context = applicationContext
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
@@ -117,6 +125,7 @@ class HomeActivity : AppCompatActivity() {
         progress.setLottieLoop(true)
         progress.setLayoutColor(Color.WHITE)
 
+//        Getting a reference to the current user
         userRef = FirebaseDatabase
             .getInstance()
             .getReference("users")
@@ -131,6 +140,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
 
+//  This part is to show the search bar
         val searchItem = menu?.findItem(R.id.search_action)
         val searchView: SearchView = searchItem?.actionView as SearchView
         searchView.queryHint = "What are you looking for?"
@@ -141,7 +151,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-//               implement the filter on all the frags
+//               Filter the results from all the pages
                 return false
             }
 

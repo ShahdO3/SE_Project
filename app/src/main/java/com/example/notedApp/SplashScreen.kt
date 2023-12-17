@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ class SplashScreen : Fragment() {
             move = if (currentUser == null){
                 SplashScreenDirections.actionSplashScreen2ToSignInFragment2()
             }else{
+                Log.d("ugh", "user not null")
                 val sharedPref = requireActivity().getSharedPreferences("savePic",
                     Context.MODE_PRIVATE)
                 val imgUri = sharedPref.getString("imgUri", "")!!

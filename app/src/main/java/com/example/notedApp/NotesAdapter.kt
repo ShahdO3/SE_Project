@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notedApp.databinding.NotesItemBinding
 import com.example.notedApp.databinding.RegisteredLessonsRowBinding
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
@@ -20,8 +21,7 @@ import java.util.*
 class NotesAdapter (
     var mutableL: MutableList<NotesInfo>,
     val context: Context,
-    val activity: Activity,
-    val fragmentManager: FragmentManager)
+    val activity: Activity)
     : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
         inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
@@ -31,7 +31,7 @@ class NotesAdapter (
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             return ViewHolder(
-                RegisteredLessonsRowBinding.inflate(
+                NotesItemBinding.inflate(
                     LayoutInflater
                         .from(parent.context), parent, false).root)
         }

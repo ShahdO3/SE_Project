@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notedApp.databinding.FragmentToDoListBinding
 import com.google.firebase.auth.FirebaseAuth
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.*
 
 
@@ -31,7 +33,8 @@ class ToDoListFragment : Fragment(), ToDoAdapter.ToDoAdapterClicksInterface {
 
 
     ): View? {
-        binding = FragmentToDoListBinding.inflate(inflater, container,false)
+        binding = FragmentToDoListBinding
+            .inflate(inflater, container,false)
         return binding.root
     }
 
@@ -49,15 +52,34 @@ class ToDoListFragment : Fragment(), ToDoAdapter.ToDoAdapterClicksInterface {
 
 
     private fun RegisterEvents(){
+//
+//        binding.reminderBtn.setOnClickListener {
+//            //navController.navigate(R.id.(from todo_to_reminders))
+//        }
+//
+//        binding.NotesBtn.setOnClickListener {
+//            //navController.navigate(R.id.(from todo_to_notes))
+//        }
 
-        binding.reminderBtn.setOnClickListener {
-            //navController.navigate(R.id.(from todo_to_reminders))
+
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.notes ->{
+                    binding.fAbtn.show()
+                    val move = ToDoListFragmentDirections
+                        .actionToDoListFragment2ToProfilePageFragment()
+                    findNavController().navigate(move)
+                }
+                R.id.reminders->{
+                    binding.fAbtn.show()
+                }
+                R.id.todolist->{
+                    binding.fAbtn.hide()
+
+                }
+            }
+            true
         }
-
-        binding.NotesBtn.setOnClickListener {
-            //navController.navigate(R.id.(from todo_to_notes))
-        }
-
 
         binding.SubmitBtn.setOnClickListener {
 

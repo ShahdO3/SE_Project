@@ -42,14 +42,14 @@ class ProfilePageFragment : Fragment() {
     private lateinit var imgUri : Uri
     private lateinit var auth: FirebaseAuth
     private lateinit var user:FirebaseUser
-    private lateinit var instructorsRef: DatabaseReference
     private lateinit var userRef: DatabaseReference
     private lateinit var imageStorageRef:StorageReference
-    private lateinit var upcomingList: MutableList<RegisteredClassesInfo>
-    private lateinit var todayList: MutableList<RegisteredClassesInfo>
     private lateinit var binding: FragmentProfilePageBinding
     private lateinit var cont: Context
     lateinit var progress: BeautifulProgressDialog
+    private lateinit var adapter: NotesAdapter
+    private lateinit var mlist:MutableList<NotesInfo>
+    private lateinit var databaseRef:DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,20 +74,17 @@ class ProfilePageFragment : Fragment() {
 
         binding = FragmentProfilePageBinding.inflate(inflater, container, false)
 
-        upcomingList = mutableListOf()
-        todayList = mutableListOf()
         cont = requireContext()
 
         auth = FirebaseAuth.getInstance()
         user = auth.currentUser!!
+        mlist = mutableListOf()
+        adapter = NotesAdapter(mlist, requireContext(), requireActivity())
 
         imgUri = user.photoUrl!!
-//        Picasso.with(context).load(imgUri).placeholder(R.drawable.user).into(binding.userPp)
+
         println("recieved image = ${args.imageUri}")
-//        getPic()
-        instructorsRef = FirebaseDatabase
-            .getInstance()
-            .getReference("instructors")
+
         userRef = FirebaseDatabase
             .getInstance()
             .getReference("users")
@@ -95,6 +92,8 @@ class ProfilePageFragment : Fragment() {
         imageStorageRef = FirebaseStorage.getInstance()
             .getReference("profileImg")
             .child(user.uid)
+        databaseRef = FirebaseDatabase.getInstance().reference
+            .child(auth.currentUser?.uid.toString()).child("Notes")
 
 //
 //        binding.notesRecycler.layoutManager = LinearLayoutManager(
@@ -102,33 +101,20 @@ class ProfilePageFragment : Fragment() {
 //        binding.notesRecycler.setHasFixedSize(true)
 
 
-        userRef.child("classes").addValueEventListener(object: ValueEventListener {
+        userRef.child("Notes").addValueEventListener(object: ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
-                    upcomingList.clear()
+                    mlist.clear()
                     for (snap in snapshot.children){
-                        println("snap = $snap")
-                        val classes = snap.getValue(RegisteredClassesInfo::class.java)
-                        if (classes!=null){
-                            println("classes =  $classes")
-                            val dayToday = Calendar.getInstance().get(Calendar.DAY_OF_WEEK)
-                            val dayChosen = HomeActivity.dayToNum(classes.dayChosen!!
-                                .subSequence(0,3) as String)
 
-                            if (dayChosen == dayToday ) {
-                                todayList.add(classes)
-                                binding.nothingRegTV.visibility = INVISIBLE
-                            }else {
-                            }
+                        val notes = snap.getValue(NotesInfo::class.java)
+                        if (notes!=null){
+                            println("notes =  $notes")
+                            mlist.add(notes)
+
                         }
                     }
-                    try{
-                        val adapter2 = RegisteredClassesAdapter(todayList, context!!, requireActivity(), parentFragmentManager)
-//                        binding.notesRecycler.adapter = adapter2
-
-                    }catch (e :NullPointerException){
-                        println( e.localizedMessage)
-                    }
+                    adapter.notifyDataSetChanged()
                 }
             }
 
@@ -136,6 +122,8 @@ class ProfilePageFragment : Fragment() {
                 Toast.makeText(context!!, error.message, Toast.LENGTH_LONG).show()
             }
         })
+
+
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
@@ -147,17 +135,20 @@ class ProfilePageFragment : Fragment() {
                 }
                 R.id.todolist->{
                     binding.fAbtn.hide()
+                    val move = ProfilePageFragmentDirections
+                        .actionProfilePageFragmentToToDoListFragment2()
+                    findNavController().navigate(move)
+
                 }
             }
             true
         }
 
         binding.fAbtn.setOnClickListener {
-            val move = ProfilePageFragmentDirections
-                .actionProfilePageFragmentToNewNotesBottomDialogF()
-            findNavController().navigate(move)
+//            val move = ProfilePageFragmentDirections
+//                .actionProfilePageFragmentToNewNotesBottomDialogF()
+//            findNavController().navigate(move)
         }
-
         return binding.root
     }
 
